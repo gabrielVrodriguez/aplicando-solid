@@ -1,6 +1,6 @@
 import { ICheckInRepository } from "../repositories/ICheckInRepository";
 import { registerCheckinSchema } from "../dtos/register-check-in";
-import { ResourceNotFoundError } from "@/modules/user/errors/resource-not-found";
+import { ResourceNotFoundError } from "@/shared/errors/resource-not-found";
 import { IGymRepository } from "@/modules/gym/repositories/IGymRepository";
 import { getDistanceBetweenCoordinates } from "@/shared/utils/get-distance-between-coordinate";
 import { MaxDistanceError } from "../errors/max-distance";

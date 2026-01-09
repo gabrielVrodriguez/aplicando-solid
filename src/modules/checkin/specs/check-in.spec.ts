@@ -2,7 +2,7 @@ import { expect, describe, it, beforeEach, vi, afterEach } from 'vitest'
 import { InMemoryCheckInRepository } from '../repositories/in-memory/in-memory-check-in-repository'
 import { CheckinUseCase } from '../use-cases/check-in'
 import { InMemoryGymRepository } from '../../gym/repositories/in-memory/in-memory-gym-repository'
-import { ResourceNotFoundError } from '@/modules/user/errors/resource-not-found'
+import { ResourceNotFoundError } from '@/shared/errors/resource-not-found'
 import { MaxNumberCheckInsError } from '../errors/max-number-check-ins'
 import { MaxDistanceError } from '../errors/max-distance'
 
