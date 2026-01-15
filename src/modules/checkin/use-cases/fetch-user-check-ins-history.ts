@@ -9,10 +9,11 @@ export class FetchUserCheckInsHistoryUseCase {
         private checkinRepository: ICheckInRepository,
     ) { }
 
-    async execute({ user_id }: FetchUserCheckInHistorySchema) {
+    async execute({ user_id, page = 1 }: FetchUserCheckInHistorySchema) {
 
 
-        const checkIns = await this.checkinRepository.findByUserId(user_id)
+        const checkIns = await this.checkinRepository.findManyByUserId(user_id, page)
+
         if (!checkIns) {
             throw new ResourceNotFoundError()
         }

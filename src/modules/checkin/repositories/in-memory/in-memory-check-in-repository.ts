@@ -8,6 +8,7 @@ dayjs.extend(isBetween)
 
 
 export class InMemoryCheckInRepository implements ICheckInRepository {
+   
 
 
     public items: CheckIn[] = []
@@ -38,10 +39,18 @@ export class InMemoryCheckInRepository implements ICheckInRepository {
         return checkIn || null
     }
 
-    async findByUserId(userId: string): Promise<CheckIn[] | null> {
+    async findManyByUserId(userId: string, page: number): Promise<CheckIn[] | null> {
         const checkIns = this.items.filter((item) => item.user_id === userId)
-
+        .slice((page - 1) * 20, page * 20)
+                
         return checkIns || null
+    }
+
+     async countByUserId(userId: string): Promise<number> {
+
+        const countCheckIns  = this.items.filter((item) => item.user_id === userId).length 
+
+        return countCheckIns
     }
 
 

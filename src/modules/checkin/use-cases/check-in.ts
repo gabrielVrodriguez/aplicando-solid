@@ -5,7 +5,7 @@ import { IGymRepository } from "@/modules/gym/repositories/IGymRepository";
 import { getDistanceBetweenCoordinates } from "@/shared/utils/get-distance-between-coordinate";
 import { MaxDistanceError } from "../errors/max-distance";
 import { MaxNumberCheckInsError } from "../errors/max-number-check-ins";
-
+import { CheckIn } from "@/shared/entities/check-in"
 export class CheckinUseCase {
 
     constructor(
@@ -13,7 +13,7 @@ export class CheckinUseCase {
         private gymRepository: IGymRepository
     ) { }
 
-    async execute({ user_id, gym_id, user_latitude, user_longitude }: registerCheckinSchema) {
+    async execute({ user_id, gym_id, user_latitude, user_longitude }: registerCheckinSchema): Promise<CheckIn> {
         const gym = await this.gymRepository.findById(gym_id)
         const MAX_DISTANCE_IN_KM = 0.1
 

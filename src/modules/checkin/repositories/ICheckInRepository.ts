@@ -5,5 +5,6 @@ import { registerCheckinSchema } from '../dtos/register-check-in'
 export interface ICheckInRepository {
     create(data: registerCheckinSchema): Promise<CheckIn>
     findByUserIdOnDate(userId: string, date: Date): Promise<CheckIn | null>
-    findByUserId(userId: string): Promise<CheckIn[] | null>
+    findManyByUserId(userId: string, page: number): Promise<CheckIn[] | null>
+    countByUserId(userId: string): Promise<number>
 }
