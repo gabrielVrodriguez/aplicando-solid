@@ -2,7 +2,7 @@
 import { z } from "zod"
 
 export const createGymDto = z.object({
-    id: z.string(),
+    id: z.string().optional(),
     title: z.string().min(3),
     description: z.string().optional().nullable(),
     phone: z.string().optional().nullable(),
