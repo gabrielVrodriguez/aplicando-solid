@@ -1,6 +1,6 @@
 
 import { ICheckInRepository } from "../repositories/ICheckInRepository";
-import { FetchUserCheckInHistorySchema } from "../dtos/fetch-user-check-in-history";
+import { FetchUserCheckInHistorySchema } from "../dtos/fetch-user-check-ins-history";
 import { ResourceNotFoundError } from '@/shared/errors/resource-not-found'
 
 export class FetchUserCheckInsHistoryUseCase {

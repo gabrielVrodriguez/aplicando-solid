@@ -6,7 +6,7 @@ import { getDistanceBetweenCoordinates } from "@/shared/utils/get-distance-betwe
 import { MaxDistanceError } from "../errors/max-distance";
 import { MaxNumberCheckInsError } from "../errors/max-number-check-ins";
 import { CheckIn } from "@/shared/entities/check-in"
-export class CheckinUseCase {
+export class CheckInUseCase {
 
     constructor(
         private checkinRepository: ICheckInRepository,
