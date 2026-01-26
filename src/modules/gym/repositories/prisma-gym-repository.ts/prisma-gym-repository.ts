@@ -1,6 +1,6 @@
 import { Gym } from "@/shared/entities/gym";
 import { CreateGymSchema } from "../../dtos/create-gym";
-import { fetchNearbyGymsSchema } from "../../dtos/fetch-nearby-gyms";
+import { FetchNearbyGymsSchema } from "../../dtos/fetch-nearby-gyms";
 import { IGymRepository } from "../IGymRepository";
 import { prisma } from "@/../database/prisma"
 
@@ -45,7 +45,7 @@ export class PrismaGymRepository implements IGymRepository {
         return gyms
     }
 
-    async fetchNearbyGyms({ latitude, longitude }: fetchNearbyGymsSchema): Promise<Gym[]> {
+    async fetchNearbyGyms({ latitude, longitude }: FetchNearbyGymsSchema): Promise<Gym[]> {
         const gyms = await prisma.$queryRaw<Gym[]>`
         SELECT * from gyms
         WHERE ( 6371 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude )

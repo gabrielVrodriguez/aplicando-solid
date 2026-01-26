@@ -7,4 +7,4 @@ export const searchGymDto = z.object({
     page: z.number().optional().default(1),
 })
 
-export type searchGymSchema = z.infer<typeof searchGymDto>
+export type SearchGymSchema = z.infer<typeof searchGymDto>

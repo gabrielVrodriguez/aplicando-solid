@@ -4,9 +4,14 @@ import { PrismaUserRepository } from "../repositories/prisma/prisma-user-reposit
 
 
 
-export function makeGetUserByIdController() {
+export function makeGetUserByIdUseCase() {
     const userRepository = new PrismaUserRepository()
     const getUserByIdUseCase = new GetUserByIdUseCase(userRepository)
+    return getUserByIdUseCase
+}
+
+export function makeGetUserByIdController() {
+    const getUserByIdUseCase = makeGetUserByIdUseCase()
     const getUserByIdController = new GetUserByIdController(getUserByIdUseCase)
 
     return getUserByIdController

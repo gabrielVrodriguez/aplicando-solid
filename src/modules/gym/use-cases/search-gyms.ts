@@ -1,4 +1,4 @@
-import { searchGymSchema } from "../dtos/search-gym";
+import { SearchGymSchema } from "../dtos/search-gyms";
 import { IGymRepository } from "../repositories/IGymRepository";
 import { Gym } from "@/shared/entities/gym";
 
@@ -8,7 +8,7 @@ export class SearchGymsUseCase {
         private gymRepository: IGymRepository
     ) { }
 
-    async execute({query , page}: searchGymSchema): Promise<{gyms: Gym[]; total: number}>{
+    async execute({query , page}: SearchGymSchema): Promise<{gyms: Gym[]; total: number}>{
         const gyms = await this.gymRepository.searchMany(query , page)
 
         return {

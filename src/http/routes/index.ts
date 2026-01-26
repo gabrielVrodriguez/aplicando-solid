@@ -8,4 +8,5 @@ export async function appRoutes(app: FastifyInstance) {
     
     app.register(userRoutes, { prefix: '/users' })
     app.register(authenticateRoutes, { prefix: '/sessions' })
+    
 }
