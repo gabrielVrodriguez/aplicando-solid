@@ -12,12 +12,25 @@ export class AuthenticateController {
         const data = request.body as AuthenticateSchema
 
         try {
-           await this.authenticateUseCase.execute(data)
+            const { user } = await this.authenticateUseCase.execute(data)
+            const userWithoutPassword = { ...user, password_hash: undefined }
+            const tokenJwt = await reply.jwtSign({},
+                {
+                    sign: {
+                        sub: user.id,
+                    },
+                }
+            )
+
+            return reply.status(200).send({
+                token: tokenJwt, user: userWithoutPassword
+            })
+
         } catch (error) {
-            if(error instanceof InvalidCredentialError){
+            if (error instanceof InvalidCredentialError) {
                 return reply.status(400).send({ message: error.message })
             }
-           throw error
+            throw error
         }
     }
 }

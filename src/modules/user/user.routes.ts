@@ -18,6 +18,7 @@ export async function userRoutes(app: FastifyInstance) {
     app.get('/', (request, reply) => {
         return getAllUsersController.handle(request, reply)
     })
+    
 
     app.withTypeProvider<ZodTypeProvider>().get('/:id', {
         schema: {
