@@ -1,7 +1,7 @@
 
 import { describe, it, beforeEach, expect } from 'vitest'
 import { InMemoryUserRepository } from '../repositories/in-memory/in-memory-user-repository'
-import { GetUserByIdUseCase } from '../use-cases/get-user-by-id'
+import { GetUserByIdUseCase } from './get-user-by-id'
 import { ResourceNotFoundError } from '../../../shared/errors/resource-not-found'
 
 

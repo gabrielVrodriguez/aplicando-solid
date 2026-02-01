@@ -1,7 +1,7 @@
 import { expect, describe, it, beforeEach, } from 'vitest'
 
 import { InMemoryGymRepository } from '../repositories/in-memory/in-memory-gym-repository'
-import { FetchNearByGymsUseCase } from '../use-cases/fetch-nearby-gyms'
+import { FetchNearByGymsUseCase } from './fetch-nearby-gyms'
 
 let gymRepository: InMemoryGymRepository
 let sut: FetchNearByGymsUseCase
@@ -35,7 +35,7 @@ describe('Fetch nearby gyms Use Case', () => {
 
         expect(gyms).toHaveLength(1)
         expect(gyms).toEqual([expect.objectContaining({ title: 'Gym 02' })])
-    
+
     })
 
 

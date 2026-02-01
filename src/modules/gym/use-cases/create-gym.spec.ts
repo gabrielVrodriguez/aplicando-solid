@@ -2,7 +2,7 @@
 import { expect, describe, it, beforeEach } from 'vitest'
 
 import { InMemoryGymRepository } from '../repositories/in-memory/in-memory-gym-repository'
-import { CreateGymUseCase } from '../use-cases/create-gym'
+import { CreateGymUseCase } from './create-gym'
 
 describe('Gym use case', () => {
 
@@ -15,9 +15,9 @@ describe('Gym use case', () => {
     })
 
     it('should be able to create a gym', async () => {
-    
+
         await expect(
-             sut.execute({
+            sut.execute({
                 id: 'gym-01',
                 title: 'smartfit gym',
                 description: 'description',

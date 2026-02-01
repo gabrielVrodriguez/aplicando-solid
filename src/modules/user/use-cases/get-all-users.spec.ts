@@ -1,5 +1,5 @@
 import { expect, it, describe, beforeEach } from 'vitest'
-import { GetAllUsersUseCase } from '../use-cases/get-all-users'
+import { GetAllUsersUseCase } from './get-all-users'
 import { InMemoryUserRepository } from '../repositories/in-memory/in-memory-user-repository'
 
 

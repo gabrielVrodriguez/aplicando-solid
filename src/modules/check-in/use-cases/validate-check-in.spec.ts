@@ -1,7 +1,7 @@
 import { expect, describe, it, beforeEach, vi } from 'vitest'
 import { InMemoryCheckInRepository } from '../repositories/in-memory/in-memory-check-in-repository'
 import { ResourceNotFoundError } from '@/shared/errors/resource-not-found'
-import { ValidateCheckInUseCase } from '../use-cases/validate-check-in'
+import { ValidateCheckInUseCase } from './validate-check-in'
 import { LateCheckInValidationError } from '../errors/late-check-in-validation'
 
 
@@ -47,7 +47,7 @@ describe('Validate Check-in Use Case', () => {
 
     })
 
-    it( 'should not be able to validate the check-in after 20 minutes of its creation', async () => {
+    it('should not be able to validate the check-in after 20 minutes of its creation', async () => {
 
         vi.setSystemTime(new Date(2022, 0, 1, 14, 50))
 

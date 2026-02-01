@@ -1,7 +1,7 @@
 import { expect, describe, it, beforeEach, } from 'vitest'
 
 import { InMemoryGymRepository } from '../repositories/in-memory/in-memory-gym-repository'
-import { SearchGymsUseCase } from '../use-cases/search-gyms'
+import { SearchGymsUseCase } from './search-gyms'
 
 let gymRepository: InMemoryGymRepository
 let sut: SearchGymsUseCase
@@ -69,6 +69,6 @@ describe('Search gyms Use Case', () => {
 
         expect(gyms1.gyms).toHaveLength(20)
         expect(gyms1.total).toBe(20)
-        
+
     })
 })

@@ -2,7 +2,7 @@ import { expect, describe, it, beforeEach } from 'vitest'
 import bcrypt from 'bcrypt'
 
 import { InMemoryUserRepository } from '../repositories/in-memory/in-memory-user-repository'
-import { RegisterUseCase } from '../use-cases/register-user'
+import { RegisterUseCase } from './register-user'
 import { UserAlreadyExistsError } from '../errors/user-already-exists'
 
 describe('Register use case', () => {
@@ -16,7 +16,7 @@ describe('Register use case', () => {
     })
 
     it(' should hash user password upon registration', async () => {
-        
+
 
         const user = await sut.execute({
             name: 'John Doe',
