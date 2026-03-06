@@ -14,6 +14,7 @@ export class InMemoryUserRepository implements IUserRepository {
             name: data.name,
             email: data.email,
             password_hash: data.password,
+            role: (data.role ?? 'MEMBER') as 'ADMIN' | 'MEMBER',
             id: crypto.randomUUID(),
             created_at: new Date()
         }

@@ -10,7 +10,7 @@ export default defineConfig({
                 plugins: [tsConfigPaths()],
                 test: {
                     name: 'unit',
-                    include: ['src/modules/**/use-cases/*.spec.ts'], 
+                    include: ['src/modules/**/use-cases/*.spec.ts', 'src/middleware/*.spec.ts'],
                     environment: 'node',
                 }
             },

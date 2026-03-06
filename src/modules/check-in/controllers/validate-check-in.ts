@@ -9,10 +9,10 @@ export class ValidateCheckInController {
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
 
-        const data = request.body as ValidateCheckInSchema
+        const data = request.params as ValidateCheckInSchema
 
-        await this.validateCheckInUseCase.execute(data)
+        const checkIn = await this.validateCheckInUseCase.execute(data)
 
-        return reply.status(201).send()
+        return reply.status(200).send(checkIn)
     }
 }

@@ -9,10 +9,15 @@ export class RegisterCheckInController {
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
 
-        const data = request.body as registerCheckinSchema
+        const { gym_id, user_latitude, user_longitude } = request.body as registerCheckinSchema
 
-        await this.checkInUseCase.execute(data)
+        const checkIn = await this.checkInUseCase.execute({
+            user_id: request.user.sub,
+            gym_id,
+            user_latitude,
+            user_longitude
+        })
 
-        return reply.status(200).send()
+        return reply.status(201).send(checkIn)
     }
 }

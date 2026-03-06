@@ -8,8 +8,8 @@ import { z } from "zod";
 
 
 export const FetchNearbyGymsDto = z.object({
-    latitude: z.number(),
-    longitude: z.number(),
+    latitude: z.coerce.number(),
+    longitude: z.coerce.number(),
 })
 
 export type FetchNearbyGymsSchema = z.infer<typeof FetchNearbyGymsDto>

@@ -9,10 +9,10 @@ export class SearchGymsController {
     constructor (private searchGymsUseCase: SearchGymsUseCase) {}
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
-        const data = request.body as SearchGymSchema
+        const data = request.query as SearchGymSchema
 
-        await this.searchGymsUseCase.execute(data)
+        const { gyms, total } = await this.searchGymsUseCase.execute(data)
 
-        return reply.status(201).send()
+        return reply.status(200).send({ gyms, total })
     }
 }

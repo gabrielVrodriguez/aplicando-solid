@@ -9,10 +9,13 @@ export class FetchUserCheckInsHistoryController {
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
 
-        const data = request.body as FetchUserCheckInsHistorySchema
+        const { page } = request.query as FetchUserCheckInsHistorySchema
 
-        await this.fetchUserCheckInsHistoryUseCase.execute(data)
+        const checkIns = await this.fetchUserCheckInsHistoryUseCase.execute({
+            user_id: request.user.sub,
+            page
+        })
 
-        return reply.status(200).send()
+        return reply.status(200).send(checkIns)
     }
 }

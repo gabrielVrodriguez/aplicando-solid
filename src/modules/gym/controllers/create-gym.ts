@@ -12,8 +12,8 @@ export class CreateGymController {
 
         const data = request.body as CreateGymSchema
 
-        await this.createGymUseCase.execute(data)
+        const gym = await this.createGymUseCase.execute(data)
 
-        return reply.status(201).send()
+        return reply.status(201).send(gym)
     }
 }

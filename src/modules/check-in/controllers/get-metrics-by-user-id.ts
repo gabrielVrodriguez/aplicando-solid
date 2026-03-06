@@ -1,6 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { GetMetricsByUserIdUseCase } from "../use-cases/get-metrics-by-user-id";
-import { GetMetricsByUserIdSchema } from "../dtos/get-metrics-by-user-id";
 
 
 
@@ -9,10 +8,10 @@ export class GetMetricsByUserIdController {
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
 
-        const data = request.body as GetMetricsByUserIdSchema
+        const count = await this.getMetricsByUserIdUseCase.execute({
+            user_id: request.user.sub
+        })
 
-        await this.getMetricsByUserIdUseCase.execute(data)
-
-        return reply.status(201).send()
+        return reply.status(200).send({ count })
     }
 }

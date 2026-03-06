@@ -10,10 +10,10 @@ export class FetchNearbyGymsController {
 
     async handle (request: FastifyRequest, reply: FastifyReply) {
 
-        const data = request.body as FetchNearbyGymsSchema
+        const data = request.query as FetchNearbyGymsSchema
 
-        await this.fetchNearbyGymsUseCase.execute(data)
+        const gyms = await this.fetchNearbyGymsUseCase.execute(data)
 
-        return reply.status(201).send()
+        return reply.status(200).send(gyms)
     }
 }
